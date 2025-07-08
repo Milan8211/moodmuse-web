@@ -9,17 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@iconify/react": "^6.0.0",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "antd": "^5.26.2",
+    "framer-motion": "^12.19.1",
+    "moodmuse-ui": "^0.2.1",
+    "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.4"
+    "react-syntax-highlighter": "^15.6.1",
+    "styled-components": "^6.1.19",
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/styled-components": "^5.1.34",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5"
   }
 }
