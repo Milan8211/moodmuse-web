@@ -12,24 +12,24 @@ import LoadingIndicator from "./common/LoadingIndicator";
 const { Content, Sider } = Layout;
 
 const DocsLayoutWrapper = styled(Layout)`
-  background: #f8f9fa !important;
+  background-color: #f8f9fa !important;
   padding: 2rem;
+  min-height: 100vh;
 `;
 
 const StyledSider = styled(Sider)`
-  background: #ffffff !important;
+  background-color: #ffffff !important;
   padding: 0;
   height: calc(100vh - 4rem);
   position: sticky !important;
   border-radius: 8px;
   top: 2rem;
   overflow: hidden;
-  opacity: 1 !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
   .ant-layout-sider-children {
     .ant-menu {
-      background: #ffffff;
+      background-color: #ffffff !important;
       padding: 1rem 0;
     }
   }
@@ -37,21 +37,21 @@ const StyledSider = styled(Sider)`
 
 const LogoWrapper = styled.div`
   padding: 2rem 1.75rem;
-  background: #ffffff;
+  background-color: #ffffff;
   border-radius: 8px;
   margin-bottom: 1rem;
   border-bottom: 1px solid #e9ecef;
 `;
 
 const StyledMenu = styled(Menu)`
-  background: #ffffff;
+  background-color: #ffffff !important;
   border-right: 0;
 
   .ant-menu-item,
   .ant-menu-submenu-title {
     font-size: 1rem;
     color: #495057;
-    font-family: var(--font-inter);
+    font-family: var(--font-inter) !important;
   }
 
   .ant-menu-item-selected {
@@ -65,7 +65,7 @@ const StyledMenu = styled(Menu)`
 `;
 
 const StyledContent = styled(Content)`
-  background: #ffffff;
+  background-color: #ffffff !important;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
