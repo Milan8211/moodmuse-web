@@ -60,7 +60,7 @@ const PreviewWrapper = styled(motion.div)<{ $themeName: IconButtonTheme }>`
 const IconButtonContent = () => {
   const [themeStyle, setThemeStyle] = useState<IconButtonTheme>("softclay");
   const [size, setSize] = useState<IconButtonSize>("medium");
-  const [radius, setRadius] = useState("no");
+  const [radius, setRadius] = useState<IconButtonRadius>("no");
   const [icon, setIcon] = useState<string | null>(null);
 
   const themeOptions: { value: IconButtonTheme; label: string }[] = [
@@ -79,7 +79,7 @@ const IconButtonContent = () => {
     { value: "large", label: "Large" },
   ];
 
-  const radiusOptions: { value: string; label: string }[] = [
+  const radiusOptions: { value: IconButtonRadius; label: string }[] = [
     { value: "no", label: "No Radius" },
     { value: "small", label: "Small" },
     { value: "medium", label: "Medium" },
@@ -104,11 +104,15 @@ const IconButtonContent = () => {
       >
         <ThemeProvider theme={themes[themeStyle]}>
           <IconButton
-            $themeStyle={themeStyle}
-            $size={size}
-            $radius={radius as IconButtonRadius}
-            icon={icon ? <Icon icon={icon} /> : <Icon icon="mdi:home" />}
-            label={themeOptions.find((t) => t.value === themeStyle)?.label}
+            $iconButtonThemeStyle={themeStyle}
+            $iconButtonSize={size}
+            $iconButtonRadius={radius}
+            $iconButtonIcon={
+              icon ? <Icon icon={icon} /> : <Icon icon="mdi:home" />
+            }
+            $iconButtonLabel={
+              themeOptions.find((t) => t.value === themeStyle)?.label
+            }
           />
         </ThemeProvider>
       </PreviewWrapper>
@@ -134,7 +138,7 @@ const IconButtonContent = () => {
             <div className="label"> Select Radius:</div>
             <StyledSelect
               defaultValue={radius}
-              onChange={(value) => setRadius(value as string)}
+              onChange={(value) => setRadius(value as IconButtonRadius)}
               options={radiusOptions}
             />
           </SelectWrapper>

@@ -68,16 +68,14 @@ const PreviewWrapper = styled(motion.div)<{ $themeName: CardTheme }>`
   ${({ $themeName }) =>
     backgroundStyles[$themeName as keyof typeof backgroundStyles]};
 
-  .custom-card {
-    p {
-      font-weight: 400;
-    }
+  p {
+    font-weight: 400;
   }
 `;
 
 const CardContent = () => {
   const [themeStyle, setThemeStyle] = useState<CardTheme>("softclay");
-  const [radius, setRadius] = useState("no");
+  const [radius, setRadius] = useState<CardRadius>("no");
   const [avatar, setAvatar] = useState<boolean>(false);
   const [icon, setIcon] = useState<boolean>(false);
 
@@ -91,7 +89,7 @@ const CardContent = () => {
     { value: "monogrid", label: "Mono Grid" },
   ];
 
-  const radiusOptions: { value: string; label: string }[] = [
+  const radiusOptions: { value: CardRadius; label: string }[] = [
     { value: "no", label: "No Radius" },
     { value: "small", label: "Small" },
     { value: "medium", label: "Medium" },
@@ -109,19 +107,18 @@ const CardContent = () => {
       >
         <ThemeProvider theme={themes[themeStyle]}>
           <Card
-            title="Card Title"
-            content="This is a short description of the card. Which will be displayed in the card."
-            $themeStyle={themeStyle}
-            $radius={radius as CardRadius}
-            className="custom-card"
-            avatar={
+            $cardTitle="Card Title"
+            $cardContent="This is a short description of the card. Which will be displayed in the card."
+            $cardThemeStyle={themeStyle}
+            $cardRadius={radius}
+            $cardAvatar={
               avatar ? (
                 <img src="https://i.pravatar.cc/48" alt="Avatar" />
               ) : (
                 false
               )
             }
-            icon={
+            $cardIcon={
               icon ? (
                 <Icon icon="mdi:star-circle-outline" width="48" height="48" />
               ) : (
@@ -145,7 +142,7 @@ const CardContent = () => {
             <div className="label"> Select Radius:</div>
             <StyledSelect
               defaultValue={radius}
-              onChange={(value) => setRadius(value as string)}
+              onChange={(value) => setRadius(value as CardRadius)}
               options={radiusOptions}
             />
           </SelectWrapper>

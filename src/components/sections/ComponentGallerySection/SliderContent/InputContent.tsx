@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import {
   Input,
@@ -63,17 +63,8 @@ const InputContent = () => {
   const [themeStyle, setThemeStyle] = useState<InputTheme>("softclay");
   const [label, setLabel] = useState<string>("Username");
   const [size, setSize] = useState<InputSize>("medium");
-  const [radius, setRadius] = useState("no");
+  const [radius, setRadius] = useState<InputRadius>("no");
   const [icon, setIcon] = useState<string>("");
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null; // Render nothing on the server and initial client render
-  }
 
   const themeOptions: { value: InputTheme; label: string }[] = [
     { value: "softclay", label: "Soft Clay" },
@@ -91,7 +82,7 @@ const InputContent = () => {
     { value: "large", label: "Large" },
   ];
 
-  const radiusOptions: { value: string; label: string }[] = [
+  const radiusOptions: { value: InputRadius; label: string }[] = [
     { value: "no", label: "No Radius" },
     { value: "small", label: "Small" },
     { value: "medium", label: "Medium" },
@@ -116,11 +107,11 @@ const InputContent = () => {
       >
         <ThemeProvider theme={themes[themeStyle]}>
           <Input
-            label={label}
-            $themeStyle={themeStyle}
-            $size={size}
-            $radius={radius as InputRadius}
-            rightIcon={icon ? <Icon icon={icon} /> : undefined}
+            $inputLabel={label}
+            $inputThemeStyle={themeStyle}
+            $inputSize={size}
+            $inputRadius={radius}
+            $inputRightIcon={icon ? <Icon icon={icon} /> : undefined}
           />
         </ThemeProvider>
       </PreviewWrapper>
@@ -153,7 +144,7 @@ const InputContent = () => {
             <div className="label"> Select Radius:</div>
             <StyledSelect
               defaultValue={radius}
-              onChange={(value) => setRadius(value as string)}
+              onChange={(value) => setRadius(value as InputRadius)}
               options={radiusOptions}
             />
           </SelectWrapper>
@@ -161,7 +152,7 @@ const InputContent = () => {
             <div className="label"> Select Icon:</div>
             <StyledSelect
               defaultValue={icon}
-              onChange={(value) => setIcon(value as string | null)}
+              onChange={(value) => setIcon(value as string)}
               options={iconOptions}
             />
           </SelectWrapper>

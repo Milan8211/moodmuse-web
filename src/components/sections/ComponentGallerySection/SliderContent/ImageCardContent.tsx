@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { ImageCard, ImageCardSize, ImageCardPosition } from "moodmuse-ui";
 import { motion } from "framer-motion";
@@ -73,9 +73,11 @@ const PreviewWrapper = styled(motion.div)`
     align-items: center;
     h3 {
       font-weight: 400;
+      text-align: left;
     }
     p {
       font-weight: 400;
+      text-align: left;
     }
   }
 `;
@@ -84,16 +86,6 @@ const ImageCardContent = () => {
   const [title, setTitle] = useState<string>("Image Card Title");
   const [size, setSize] = useState<ImageCardSize>("medium");
   const [position, setPosition] = useState<ImageCardPosition>("top");
-
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null; // Render nothing on the server and initial client render
-  }
 
   const sizeOptions: { value: ImageCardSize; label: string }[] = [
     { value: "small", label: "Small" },
@@ -117,11 +109,11 @@ const ImageCardContent = () => {
       >
         <ImageCard
           className="custom-image-card"
-          $size={size}
+          $imageCardSize={size}
           $imagePosition={position}
-          imageSrc="/imageReview.png"
-          title={title}
-          content="This is the card content. It can be a short description or any other information."
+          $imageSrc="/imageReview.png"
+          $imageCardTitle={title}
+          $imageCardContent="This is the card content. It can be a short description or any other information."
         />
       </PreviewWrapper>
       <div className="swiper-no-swiping">

@@ -94,20 +94,22 @@ export default function Header() {
         <IconContainer $isScrolled={isScrolled}>
           <Link href="https://github.com/milan-tha/moodmuse-ui" target="_blank">
             <IconButton
-              $dropShadow={true}
-              $size="large"
-              $radius="pill"
-              icon={<Icon icon="mdi:github" className="icon" />}
-              label="GitHub"
+              $iconButtonDropShadow={true}
+              $iconButtonSize="large"
+              $iconButtonRadius="pill"
+              $iconButtonIcon={<Icon icon="mdi:github" className="icon" />}
+              $iconButtonLabel="GitHub"
             />
           </Link>
           <Link href="/docs/">
             <IconButton
-              $dropShadow={true}
-              $size="large"
-              $radius="pill"
-              icon={<Icon icon="tabler:message-2" className="icon" />}
-              label="Connect"
+              $iconButtonDropShadow={true}
+              $iconButtonSize="large"
+              $iconButtonRadius="pill"
+              $iconButtonIcon={
+                <Icon icon="tabler:message-2" className="icon" />
+              }
+              $iconButtonLabel="Connect"
             />
           </Link>
         </IconContainer>

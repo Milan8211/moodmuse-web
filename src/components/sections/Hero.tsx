@@ -79,19 +79,19 @@ export default function Hero() {
         <CTAContainer variants={itemVariants}>
           <Button
             onClick={() => router.push("/docs/getting-started")}
-            $radius="pill"
-            $themeStyle="brandfocused"
-            $dropShadow={false}
-            $size="large"
-            rightIcon={<Icon icon="formkit:arrowright" />}
+            $buttonRadius="pill"
+            $buttonThemeStyle="brandfocused"
+            $buttonDropShadow={false}
+            $buttonSize="large"
+            $buttonRightIcon={<Icon icon="formkit:arrowright" />}
           >
             Get Started
           </Button>
           <Button
             onClick={() => router.push("/docs/components")}
-            $radius="pill"
-            $dropShadow={false}
-            $size="large"
+            $buttonRadius="pill"
+            $buttonDropShadow={false}
+            $buttonSize="large"
             className="view"
           >
             View Components

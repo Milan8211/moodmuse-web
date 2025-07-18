@@ -13,7 +13,7 @@
     "@types/react-syntax-highlighter": "^15.5.13",
     "antd": "^5.26.2",
     "framer-motion": "^12.19.1",
-    "moodmuse-ui": "^0.2.1",
+    "moodmuse-ui": "^0.2.7",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

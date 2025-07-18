@@ -73,9 +73,9 @@ export default function GetStarted() {
         <motion.div variants={itemVariants}>
           <Button
             onClick={() => router.push("/docs/components")}
-            $radius="pill"
-            $dropShadow={false}
-            $size="large"
+            $buttonRadius="pill"
+            $buttonDropShadow={false}
+            $buttonSize="large"
             className="view"
           >
             View Components

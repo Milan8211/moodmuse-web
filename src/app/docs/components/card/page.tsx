@@ -162,11 +162,11 @@ const CardPage = () => {
         <Preview themeName={themeStyle}>
           <ThemeProvider theme={themes[themeStyle]}>
             <Card
-              themeStyle={themeStyle}
-              size={size}
-              radius={radius}
-              title={title}
-              content="The main content of the card."
+              $cardThemeStyle={themeStyle}
+              $cardSize={size}
+              $cardRadius={radius}
+              $cardTitle={title}
+              $cardContent="The main content of the card."
             />
           </ThemeProvider>
         </Preview>

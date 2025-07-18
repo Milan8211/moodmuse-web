@@ -60,7 +60,7 @@ const PreviewWrapper = styled(motion.div)<{ $themeName: ButtonTheme }>`
 const ButtonContent = () => {
   const [themeStyle, setThemeStyle] = useState<ButtonTheme>("softclay");
   const [size, setSize] = useState<ButtonSize>("medium");
-  const [radius, setRadius] = useState("no");
+  const [radius, setRadius] = useState<ButtonRadius>("no");
   const [icon, setIcon] = useState<string | null>(null);
 
   const themeOptions: { value: ButtonTheme; label: string }[] = [
@@ -79,7 +79,7 @@ const ButtonContent = () => {
     { value: "large", label: "Large" },
   ];
 
-  const radiusOptions: { value: string; label: string }[] = [
+  const radiusOptions: { value: ButtonRadius; label: string }[] = [
     { value: "no", label: "No Radius" },
     { value: "small", label: "Small" },
     { value: "medium", label: "Medium" },
@@ -104,10 +104,10 @@ const ButtonContent = () => {
       >
         <ThemeProvider theme={themes[themeStyle]}>
           <Button
-            $themeStyle={themeStyle}
-            $size={size}
-            $radius={radius as ButtonRadius}
-            rightIcon={icon ? <Icon icon={icon} /> : undefined}
+            $buttonThemeStyle={themeStyle}
+            $buttonSize={size}
+            $buttonRadius={radius}
+            $buttonRightIcon={icon ? <Icon icon={icon} /> : undefined}
           >
             {themeOptions.find((t) => t.value === themeStyle)?.label}
           </Button>
@@ -135,7 +135,7 @@ const ButtonContent = () => {
             <div className="label"> Select Radius:</div>
             <StyledSelect
               defaultValue={radius}
-              onChange={(value) => setRadius(value as string)}
+              onChange={(value) => setRadius(value as ButtonRadius)}
               options={radiusOptions}
             />
           </SelectWrapper>

@@ -47,7 +47,7 @@ const backgroundStyles = {
   `,
 };
 
-const PreviewWrapper = styled(motion.div)<{ $themeName: ButtonTheme }>`
+const PreviewWrapper = styled(motion.div)<{ $buttonThemeStyle: ButtonTheme }>`
   padding: 4rem 2rem;
   border-radius: 0;
   display: flex;
@@ -55,8 +55,8 @@ const PreviewWrapper = styled(motion.div)<{ $themeName: ButtonTheme }>`
   align-items: center;
   min-height: 150px;
   border: 1px solid ${theme.secondary};
-  ${({ $themeName }) =>
-    backgroundStyles[$themeName as keyof typeof backgroundStyles]};
+  ${({ $buttonThemeStyle }) =>
+    backgroundStyles[$buttonThemeStyle as keyof typeof backgroundStyles]};
 `;
 
 const ControlsWrapper = styled.div`
@@ -140,14 +140,15 @@ const CustomiseButton = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
-        $themeName={themeStyle}
+        $buttonThemeStyle={themeStyle}
       >
         <ThemeProvider theme={themes[themeStyle]}>
           <Button
-            $themeStyle={themeStyle}
-            $size={size}
-            $radius={radius as ButtonRadius}
-            rightIcon={icon ? <Icon icon={icon} /> : undefined}
+            key={themeStyle}
+            $buttonThemeStyle={themeStyle}
+            $buttonSize={size}
+            $buttonRadius={radius as ButtonRadius}
+            $buttonRightIcon={icon ? <Icon icon={icon} /> : undefined}
           >
             {themeOptions.find((t) => t.value === themeStyle)?.label} Button
           </Button>

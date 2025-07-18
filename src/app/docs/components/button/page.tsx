@@ -2,7 +2,14 @@
 
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import { Button as MUIButton, type ButtonTheme, type ButtonSize, type ButtonRadius, ThemeProvider, themes } from "moodmuse-ui";
+import {
+  Button as MUIButton,
+  type ButtonTheme,
+  type ButtonSize,
+  type ButtonRadius,
+  ThemeProvider,
+  themes,
+} from "moodmuse-ui";
 import { withCleanProps } from "@/components/common/withCleanProps";
 import DocsPageHeader from "@/components/docs/DocsPageHeader";
 import SectionHeader from "@/components/docs/SectionHeader";
@@ -191,11 +198,11 @@ const ButtonPage = () => {
         <Preview themeName={themeStyle}>
           <ThemeProvider theme={themes[themeStyle]}>
             <Button
-              themeStyle={themeStyle}
-              size={size}
-              radius={radius}
-              dropShadow={dropShadow}
-              disabled={disabled}
+              $buttonThemeStyle={themeStyle}
+              $buttonSize={size}
+              $buttonRadius={radius}
+              $buttonDropShadow={dropShadow}
+              $disabled={disabled}
             >
               Click Me
             </Button>

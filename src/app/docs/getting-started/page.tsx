@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import styled from "styled-components";
 import DocsPageHeader from "@/components/docs/DocsPageHeader";
 import SectionHeader from "@/components/docs/SectionHeader";
 import CodeBlock from "@/components/docs/CodeBlock";
@@ -59,8 +58,8 @@ export default function MyAwesomePage() {
 
       <SectionHeader>Installation</SectionHeader>
       <Paragraph>
-        To get started, install MoodMuse UI and its peer dependency, `styled-components`,
-        from your package manager.
+        To get started, install MoodMuse UI and its peer dependency,
+        `styled-components`, from your package manager.
       </Paragraph>
       <CodeBlock code={installationCode} language="bash" />
       <Paragraph>Or if you use Yarn:</Paragraph>
@@ -68,8 +67,9 @@ export default function MyAwesomePage() {
 
       <SectionHeader>Provider Setup</SectionHeader>
       <Paragraph>
-        MoodMuse UI requires a `ThemeProvider` at the root of your application to
-        provide themes to all components. Since this is a Next.js app, you'll need to set this up in a client component.
+        MoodMuse UI requires a `ThemeProvider` at the root of your application
+        to provide themes to all components. Since this is a Next.js app, you'll
+        need to set this up in a client component.
       </Paragraph>
       <CodeBlock code={providerCode} language="tsx" />
       <Paragraph>
@@ -79,7 +79,8 @@ export default function MyAwesomePage() {
 
       <SectionHeader>Usage</SectionHeader>
       <Paragraph>
-        Once the provider is set up, you can start using MoodMuse UI components anywhere in your application.
+        Once the provider is set up, you can start using MoodMuse UI components
+        anywhere in your application.
       </Paragraph>
       <CodeBlock code={usageCode} language="tsx" />
     </div>
@@ -87,4 +88,3 @@ export default function MyAwesomePage() {
 };
 
 export default GettingStartedPage;
-

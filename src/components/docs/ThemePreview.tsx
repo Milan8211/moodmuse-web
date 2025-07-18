@@ -44,10 +44,10 @@ const ThemePreview: React.FC<ThemePreviewProps> = ({ theme }) => {
     <ThemeProvider theme={theme}>
       <PreviewWrapper>
         <ComponentGroup>
-          <Button themeStyle="brandfocused" size="medium">
+          <Button $buttonThemeStyle="brandfocused" $buttonSize="medium">
             Brand Button
           </Button>
-          <Button themeStyle="softclay" size="medium">
+          <Button $buttonThemeStyle="softclay" $buttonSize="medium">
             Soft Button
           </Button>
         </ComponentGroup>
@@ -58,9 +58,9 @@ const ThemePreview: React.FC<ThemePreviewProps> = ({ theme }) => {
         <ComponentGroup>
           <CardWrapper>
             <Card
-              title="Example Card"
-              themeStyle="neoglow"
-              content="This card showcases the theme's style."
+              $cardThemeStyle="neoglow"
+              $cardTitle="Example Card"
+              $cardContent="This card showcases the theme's style."
             />
           </CardWrapper>
         </ComponentGroup>

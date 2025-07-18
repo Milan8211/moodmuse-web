@@ -1,8 +1,7 @@
 "use client";
 
 import LandingPage from "@/components/LandingPage";
-import { ThemeProvider } from "styled-components";
-import { themes } from "moodmuse-ui";
+import { ThemeProvider, themes } from "moodmuse-ui";
 
 export default function Home() {
   return (
